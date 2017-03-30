@@ -1,3 +1,5 @@
+package IO_Parsing;
+
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -6,8 +8,8 @@ import java.io.BufferedWriter;
 import java.util.*;
 
 public class IO {
-	LinkedHashMap<String,ArrayList<String>> instructions = new LinkedHashMap<String,ArrayList<String>>();
-	ArrayList<String> temp = new ArrayList<String>();
+	public LinkedHashMap<String,ArrayList<String>> instructions = new LinkedHashMap<String,ArrayList<String>>();
+	public ArrayList<String> temp;
 	public IO(String filename) {
 		try {														
 			BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -16,6 +18,7 @@ public class IO {
 			while((line = reader.readLine()) != null) {
 				String[] token;
 				token = line.split(" ");
+				temp = new ArrayList<String>();
 				for(int i=0; i<token.length; i+=1) {
 					token[i] = token[i].replaceAll("[^a-zA-Z0-9]","");
 					if(i==0) {
@@ -26,7 +29,6 @@ public class IO {
 					}
 				}
 				this.instructions.put(key, temp);
-				this.temp.clear();
 			}
 		} catch(IOException e) {}
 	}
