@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 
 public class IO {
-	public ArrayList<ArrayList> instructions = new ArrayList<ArrayList>();
+	public ArrayList<ArrayList<String>> instructions = new ArrayList<ArrayList<String>>();
 	public ArrayList<String> temp;
 	public IO(String filename) {
 		try {														
