@@ -19,7 +19,7 @@ class AMRS {
 		}
 
 		for(int i=0; i<io.instructions.size(); i++){
-			
+			ins.add(new Instruction(i+1));
 		}
 
 		while(notDone){

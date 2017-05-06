@@ -7,15 +7,17 @@ public class Instruction{
 	public boolean isExecuting;
 	public boolean isMemoryAccessing;
 	public boolean iswritingBack;
+	public int instrucion_index;
 
-	public Instruction(){
+	public Instruction(int index){
+
 		this.isFetching=false;
 		this.isDecoding=false;
 		this.isExecuting=false;
 		this.isMemoryAccessing=false;
 		this.iswritingBack=false;
-		
-		
+
+		this.instrucion_index = index;
 	}
 
 	public void fetch(){
@@ -37,5 +39,4 @@ public class Instruction{
 	public void writeBack(){
 		this.iswritingBack = true;
 	}
-
 }
