@@ -6,55 +6,73 @@ public class Parser {
 	ArrayList<String> library = new ArrayList<String>();
 	boolean valid = true;
 	
-	public Parser(ArrayList<ArrayList> instructions, Registers r) {
+	public Parser(ArrayList<ArrayList<String>> instructions, Registers r) {
 		this.library.add("LOAD");
 		this.library.add("ADD");
 		this.library.add("SUB");
 		this.library.add("CMP");
 		
 		for (int i=0; i<instructions.size(); i+=1) {
-			for(int j=0; j<instructions.get(i).size(); j+=1) {
+			for(int j=0; j<instructions.get(i).size(); j+=1) {// traverses the whole instruction
 					System.out.println(instructions.get(i).get(j)+" ");
-			}
+			}	
+			String inst = instructions.get(i).get(0);
+			String reg = instructions.get(i).get(1);
 			System.out.println();
-			/*ArrayList<String> values = instructions.get(key);
-			if(!this.library.contains(key)) {
+			System.out.println(instructions.get(i).get(0));
+			System.out.println(instructions.get(i).get(1));
+			System.out.println(instructions.get(i).get(2));
+			if(!this.library.contains(instructions.get(i).get(0))) {// reads the first element in the arraylist of the current instruction
 				valid = false;
 				System.out.println("Syntax Error! Instruction does not exist.");
 				break;
 			}
-			if(!r.containsKey(values.get(0))) {
+			if(!r.containsKey(instructions.get(i).get(1))) {
 				valid = false;
 				System.out.println("Syntax Error! Register does not exist.");
 			}
-			if(key.matches("LOAD")) {
-				if(!values.get(1).matches("^-?[0-9]|[1-9][0-9]")) {
+			if(inst.matches("LOAD")) {
+				if(!instructions.get(i).get(2).matches("^-?[0-9]|[1-9][0-9]")) {
 					valid = false;
 					System.out.println("Syntax Error!");
 				}
 				else {
-					r.put(values.get(0),Integer.parseInt(values.get(1)));
+					r.put(instructions.get(i).get(1),Integer.parseInt(instructions.get(i).get(2)));
 				}
-			}*/
-			/*else if(key.matches("ADD")) {
-				if(r.containsKey(values.get(0)) && r.containsKey(values.get(1))) {
-					r.put(values.get(0),r.get(values.get(0))+r.get(values.get(1)));
+			}
+			else if(inst.matches("ADD")) {
+				if(r.containsKey(reg) && r.containsKey(instructions.get(i).get(2))) {
+					r.put(reg,r.get(reg)+r.get(instructions.get(i).get(2)));
 				}
 				else {
 					System.out.println("Syntax Error!");
 				}
 			}
-			else if(key.matches("SUB")) {
-				if(r.containsKey(values.get(0)) && r.containsKey(values.get(1))) {
-					r.put(values.get(0),r.get(values.get(0))-r.get(values.get(1)));
+			else if(inst.matches("SUB")) {
+				if(r.containsKey(reg) && r.containsKey(instructions.get(i).get(2))) {
+					r.put(reg, r.get(reg)-r.get(instructions.get(i).get(2)));
+				}
+				else {
+					System.out.println ("Syntax Error!");
+				}
+			}
+			else if(inst.matches("CMP")) {
+				if(r.containsKey(reg) && r.containsKey(instructions.get(i).get(2))) {
+					int compare =  r.get(reg)-r.get(instructions.get(i).get(2));
+					if(compare == 0){
+						r.put("ZF", 1);
+					}
+					else if(compare <0){
+						r.put("NF", 1);
+					}
+
+					
 				}
 				else {
 					System.out.println("Syntax Error!");
-				}
+				}			
 			}
-			else if(key.matches("CMP")) {
-				
-			}*/
+			
 		}
 	}
 }
