@@ -14,6 +14,8 @@ public class Instruction{
 		this.isExecuting=false;
 		this.isMemoryAccessing=false;
 		this.iswritingBack=false;
+		
+		
 	}
 
 	public void fetch(){

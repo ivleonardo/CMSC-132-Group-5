@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 
 public class IO {
-	public LinkedHashMap<String,ArrayList<String>> instructions = new LinkedHashMap<String,ArrayList<String>>();
+	public ArrayList<ArrayList> instructions = new ArrayList<ArrayList>();
 	public ArrayList<String> temp;
 	public IO(String filename) {
 		try {														
@@ -21,14 +21,9 @@ public class IO {
 				temp = new ArrayList<String>();
 				for(int i=0; i<token.length; i+=1) {
 					token[i] = token[i].replaceAll("[^a-zA-Z0-9]","");
-					if(i==0) {
-						key = token[0];
-					}
-					else {
-						this.temp.add(token[i]);
-					}
+					this.temp.add(token[i]);
 				}
-				this.instructions.put(key, temp);
+				this.instructions.add(temp);
 			}
 		} catch(IOException e) {}
 	}

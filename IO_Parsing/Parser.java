@@ -6,16 +6,18 @@ public class Parser {
 	ArrayList<String> library = new ArrayList<String>();
 	boolean valid = true;
 	
-	public Parser(LinkedHashMap<String,ArrayList<String>> instructions, Registers r) {
+	public Parser(ArrayList<ArrayList> instructions, Registers r) {
 		this.library.add("LOAD");
 		this.library.add("ADD");
 		this.library.add("SUB");
 		this.library.add("CMP");
 		
-		Set keys = instructions.keySet();
-		for (Iterator i = keys.iterator(); i.hasNext(); ) {
-			String key = (String)i.next();
-			ArrayList<String> values = instructions.get(key);
+		for (int i=0; i<instructions.size(); i+=1) {
+			for(int j=0; j<instructions.get(i).size(); j+=1) {
+					System.out.println(instructions.get(i).get(j)+" ");
+			}
+			System.out.println();
+			/*ArrayList<String> values = instructions.get(key);
 			if(!this.library.contains(key)) {
 				valid = false;
 				System.out.println("Syntax Error! Instruction does not exist.");
@@ -33,8 +35,8 @@ public class Parser {
 				else {
 					r.put(values.get(0),Integer.parseInt(values.get(1)));
 				}
-			}
-			else if(key.matches("ADD")) {
+			}*/
+			/*else if(key.matches("ADD")) {
 				if(r.containsKey(values.get(0)) && r.containsKey(values.get(1))) {
 					r.put(values.get(0),r.get(values.get(0))+r.get(values.get(1)));
 				}
@@ -52,7 +54,7 @@ public class Parser {
 			}
 			else if(key.matches("CMP")) {
 				
-			}
+			}*/
 		}
 	}
 }

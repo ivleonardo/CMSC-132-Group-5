@@ -1,2 +1,2 @@
 LOAD R1, 1
-ADD R1, R2
+LOAD R2, 1
