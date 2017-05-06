@@ -30,11 +30,13 @@ public class Parser {
 			if(!r.containsKey(instructions.get(i).get(1))) {
 				valid = false;
 				System.out.println("Syntax Error! Register does not exist.");
+				break;
 			}
 			if(inst.matches("LOAD")) {
 				if(!instructions.get(i).get(2).matches("^-?[0-9]|[1-9][0-9]")) {
 					valid = false;
 					System.out.println("Syntax Error!");
+					break;
 				}
 				else {
 					r.put(instructions.get(i).get(1),Integer.parseInt(instructions.get(i).get(2)));
@@ -46,6 +48,7 @@ public class Parser {
 				}
 				else {
 					System.out.println("Syntax Error!");
+					break;
 				}
 			}
 			else if(inst.matches("SUB")) {
@@ -54,6 +57,7 @@ public class Parser {
 				}
 				else {
 					System.out.println ("Syntax Error!");
+					break;
 				}
 			}
 			else if(inst.matches("CMP")) {
@@ -70,6 +74,7 @@ public class Parser {
 				}
 				else {
 					System.out.println("Syntax Error!");
+					break;
 				}			
 			}
 			
