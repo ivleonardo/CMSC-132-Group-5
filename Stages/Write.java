@@ -4,10 +4,12 @@ import java.util.*;
 
 
 public class Write{
-	this.active = false;
+	boolean active = false;
 	ArrayList<String> fHold;
+	int temp;
+	String reg;
 	public Write(){
-		this.stall=false;
+		this.active=false;
 		this.fHold = new ArrayList<String>();
 		
 	}
@@ -18,8 +20,11 @@ public class Write{
 		this.active = false;
 		return fHold;
 	}
-	public void setInst(ArrayList<String> inst){
+	public void setInst(ArrayList<String> inst, int temp, String reg, Registers r){
 		this.fHold = inst;
+		this.temp = temp;
+		this.reg = reg;
+		r.put(reg,temp);
 		this.active = true;
 
 	}

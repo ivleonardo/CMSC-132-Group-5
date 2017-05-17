@@ -36,9 +36,11 @@ class AMRS {
 					h.removeHazard(w.getInst());
 				}
 				if(m.getActive()){
-					w.setInst(m.getInst());
+					w.setInst(m.getInst(), m.getTemp(), m.getReg(), r);
 				}
-				
+				if(e.getActive()){
+					m.setInst(e.getInst(), e.getTemp());
+				}
 				// check if memory is active, deactivate, 
 			}
 			clock_cycle++;
