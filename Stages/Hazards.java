@@ -20,7 +20,7 @@ public class Hazards extends LinkedHashMap<String, Integer> {
 			this.put(param1, 1);
 		}
 		else if(this.containsKey(param2)) {
-			this.put(param2, 2)
+			this.put(param2, 2);
 		}
 	}
 	
@@ -46,7 +46,7 @@ public class Hazards extends LinkedHashMap<String, Integer> {
 			this.put(param1, 0);
 		}
 		if(this.containsKey(param2)) {
-			this.put(param2, 0)
+			this.put(param2, 0);
 		}
 	}
 	
