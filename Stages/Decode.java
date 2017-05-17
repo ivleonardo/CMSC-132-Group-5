@@ -3,16 +3,15 @@ package Stages;
 import java.util.*;
 
 
-public class Decode{
-	boolean stall;
+public class Decode{	
+	this.active = false;
 	ArrayList<String> fHold;
 	public Decode(){
-		this.stall=false;
 		this.fHold = new ArrayList<String>();
 		
-	}
-	public boolean getStall(){
- 		return stall;
+	}	
+	public boolean getActive(){
+		return this.active;
 	}
 	public ArrayList<String> getInst(){
 		return fHold;

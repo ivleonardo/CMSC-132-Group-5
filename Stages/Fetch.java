@@ -4,20 +4,23 @@ import java.util.*;
 
 
 public class Fetch{
-	boolean stall;
+	boolean active;
 	ArrayList<String> fHold;
 	public Fetch(){
-		this.stall=false;
+		this.active = false;
 		this.fHold = new ArrayList<String>();
 		
 	}
-	public boolean getStall(){
- 		return stall;
+	public boolean getActive(){
+		return this.active;
 	}
 	public ArrayList<String> getInst(){
 		return fHold;
+		this.active = false;
 	}
 	public void setInst(ArrayList<String> inst){
 		this.fHold = inst;
+		this.active = true;
+
 	}
 }

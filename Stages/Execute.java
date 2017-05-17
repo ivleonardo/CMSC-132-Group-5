@@ -4,20 +4,22 @@ import java.util.*;
 
 
 public class Execute{
-	boolean stall;
+	this.active = false;
 	ArrayList<String> fHold;
 	public Execute(){
-		this.stall=false;
 		this.fHold = new ArrayList<String>();
 		
 	}
-	public boolean getStall(){
- 		return stall;
+	public boolean getActive(){
+		return this.active;
 	}
 	public ArrayList<String> getInst(){
 		return fHold;
+		this.active = false;
 	}
 	public void setInst(ArrayList<String> inst){
 		this.fHold = inst;
+		this.active = true;
+
 	}
 }
