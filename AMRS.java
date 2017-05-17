@@ -17,6 +17,7 @@ class AMRS {
 		for(int i=0; i<io.instructions.size(); i++){
 			ins.add(new Instruction(i+1));
 		}
+
 		while(1){//master loop
 			if(clock_cycle == 0){
 
@@ -25,5 +26,14 @@ class AMRS {
 
 			}
 		}
+
+		
+		Set keys = r.keySet();
+ 		for (Iterator i = keys.iterator(); i.hasNext(); ) {
+ 			String key = (String)i.next();
+ 			int value = r.get(key);
+ 			System.out.println(key+" "+value+"\n");
+ 		}
+
 	}
 }
