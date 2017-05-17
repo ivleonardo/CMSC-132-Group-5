@@ -13,7 +13,8 @@ class AMRS {
 		Execute e = new Execute();
 		Memory m = new Memory();
 		Write w = new Write();
-		Hazard h = new Hazard();*/
+		Hazard h = new Hazard();
+		Stall s = new Stall();
 		for(int i=0; i<io.instructions.size(); i++){
 			ins.add(new Instruction(i+1));
 		}
@@ -42,6 +43,17 @@ class AMRS {
 					m.setInst(e.getInst(), e.getTemp());
 				}
 				// check if memory is active, deactivate, 
+				if(d.getActive()) {
+					e.setInst(d.getInst());
+				}
+				if(h.getHazard(f.getInst()) {
+					s.addInst(f.getInst());
+				}
+				else{
+					h.setHazard(f.getInst);
+					d.setInst(f.getInst());
+				}
+				f.setInst(io.instructions.get(clock_cycle));
 			}
 			clock_cycle++;
 		}

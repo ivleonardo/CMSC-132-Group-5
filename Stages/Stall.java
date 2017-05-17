@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Stall{
 	ArrayList<ArrayList<String>> fStall;
-	public Execute(){
+	public Stall(){
 		this.fStall = new Array<ArrayList<String>>();
 		
 	}
