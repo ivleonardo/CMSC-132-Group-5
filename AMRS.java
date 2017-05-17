@@ -1,6 +1,6 @@
 import java.util.*;
 import IO_Parsing.*;
-
+import Stages.*;
 class AMRS {
 	public static void main(String args[]) {
 		IO io = new IO("instructions.txt");
