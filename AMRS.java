@@ -13,5 +13,12 @@ class AMRS {
 		for(int i=0; i<io.instructions.size(); i++){
 			ins.add(new Instruction(i+1));
 		}
+		
+		Set keys = r.keySet();
+ 		for (Iterator i = keys.iterator(); i.hasNext(); ) {
+ 			String key = (String)i.next();
+ 			int value = r.get(key);
+ 			System.out.println(key+" "+value+"\n");
+ 		}
 	}
 }
