@@ -14,9 +14,9 @@ public class Fetch{
 	public boolean getActive(){
 		return this.active;
 	}
-	public ArrayList<String> getInst(){
-		return fHold;
+	public ArrayList<String> getInst(){		
 		this.active = false;
+		return fHold;
 	}
 	public void setInst(ArrayList<String> inst){
 		this.fHold = inst;

@@ -1,15 +1,15 @@
 package Stages;
-
 import java.util.*;
 
 
 public class Memory{
-	this.active = false;
+	boolean active;
 	ArrayList<String> fHold;
 	int temp;
 	String tempReg;
 	public Memory(){
 		this.fHold = new ArrayList<String>();
+		this.active = false;
 		
 	}
 	public boolean getActive(){
@@ -22,8 +22,8 @@ public class Memory{
 		return temp;
 	}
 	public String getReg(){
-		return tempReg;
 		this.active = false;
+		return tempReg;
 	}
 	public void setInst(ArrayList<String> inst, int temp){
 		this.fHold = inst;
@@ -44,10 +44,10 @@ public class Memory{
 		}
 		else if(fHold.get(0).matches("CMP")) {
 			if(this.temp == 0){
-				tempReg = "ZF"
+				tempReg = "ZF";
 			}
 			else if(this.temp <0){
-				tempReg = "NF"
+				tempReg = "NF";
 			}					
 		}		
 		this.active = true;	
